@@ -1,14 +1,18 @@
 import React from 'react';
 import { anatomyParts } from '../../data/healthData';
+import { BookAppointment } from './BookAppointment';
 
 const BodyHealthOverview: React.FC = () => {
   return (
     <div className="bg-white rounded-xl p-6">
-      <h2 className="text-xl font-semibold mb-6">Body Health Overview</h2>
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-xl font-semibold">Body Health Overview</h2>
+        <BookAppointment />
+      </div>
       
       <div className="relative mb-8">
         <img 
-          src="https://images.pexels.com/photos/4226894/pexels-photo-4226894.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+          src="https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
           alt="Body scan visualization" 
           className="w-full h-[400px] object-cover rounded-lg"
         />
@@ -22,7 +26,7 @@ const BodyHealthOverview: React.FC = () => {
               'bottom-1/4 right-1/3'}`}
           >
             <div className={`px-3 py-1 rounded-full text-sm flex items-center gap-2 
-              ${part.status === 'healthy' ? 'bg-green-100 text-green-700' :
+              ${part.status === 'healthy' ? 'bg-blue-100 text-blue-700' :
                 part.status === 'attention' ? 'bg-red-100 text-red-700' :
                 'bg-yellow-100 text-yellow-700'}`}
             >
@@ -34,7 +38,7 @@ const BodyHealthOverview: React.FC = () => {
       
       <div className="grid grid-cols-3 gap-4">
         {anatomyParts.slice(0, 3).map(part => (
-          <div key={part.id} className="bg-gray-50 rounded-xl p-4">
+          <div key={part.id} className="bg-blue-50 rounded-xl p-4">
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-medium">{part.name}</h3>
               <span className="text-xl">{
